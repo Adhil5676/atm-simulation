@@ -9,7 +9,7 @@ function Balance({ account }) {
       .then(res => setBalance(res.data));
   }, []);
 
-  return <h2 className="balance">Current Balance: ${balance}</h2>;
+  return <h2 className="flex items-center justify-center flex-col min-h-screen p6 text-4xl font-bold">Current Balance: <span className="text-green-500 font-semibold"> ₹{balance}</span></h2>;
 }
 
 export default Balance;

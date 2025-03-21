@@ -29,13 +29,17 @@ function Withdraw({ account, setAccount }) {
   };
 
   return (
-    <div className="withdraw">
-      <h2>Withdraw Money</h2>
-      <p>Current Balance: ${account.balance}</p>
-      <input className="withplace" type="number" placeholder="Enter amount" value={amount} onChange={(e) => setAmount(e.target.value)} />
-      <button onClick={handleWithdraw}>Withdraw</button>
-      <button onClick={() => navigate("/Dashboard")}>Back</button>
+    <div className="flex flex-col items-center justify-center py-6 min-h-screen bg-gradient-to-r from-slate-900 to-slate-700">
+      <div className="bg bg-white rounded-lg p-8 w-full max-w-lg text-center mb-4">
+      <h2 className="text-3xl font-bold text-blue-500">Withdraw Money</h2>
+      <p className="text-xl font-bold text-gray-600">Current Balance: <span className="text-green-500 font-semibold"> ${account.balance} </span></p>
+      <div className="flex flex-col gap-4 mt-4">
+      <input className="w-full border py-2 rounded-lg p-3 focus:border-blue-500 outline-none mb-2" type="number" placeholder="Enter amount" value={amount} onChange={(e) => setAmount(e.target.value)} />
+      <button onClick={handleWithdraw} className="bg-blue-500 rounded-lg py-2 text-white hover:bg-blue-800 transition duration-500">Withdraw</button>
+      <button onClick={() => navigate("/Dashboard")} className="bg-blue-500 rounded-lg py-2 text-white hover:bg-blue-800 transition duration-500">Back</button>
       {message && <p>{message}</p>}
+      </div>
+      </div>
     </div>
   );
 }
